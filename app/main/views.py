@@ -32,3 +32,13 @@ def search(news_name):
     title = f" Search results for {news_name}"
     
     return render_template("search.html", news = searched_news)
+
+@main.route("/sources")
+def sources():
+    '''
+    View function to display sources of news
+    '''
+    source = sources_news()
+    title = f"{sources} news "
+    
+    return render_template("sources.html", source = source)
