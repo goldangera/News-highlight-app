@@ -2,3 +2,21 @@ from flask import render_template, request, redirect, url_for
 from . import main
 from ..request import get_news, search_news, sources_news
 
+@main.route("/")
+def index():
+    '''
+    View root page function that returns the index page and its data
+    '''
+    top_headlines = get_news("top-headlines")
+
+    title = "News headlines"
+    
+    search_news = request.args.get("news_query")
+    search_sources = request.args.get("news_sources")
+    if search_news:
+        return redirect(url_for(".search", news_name = search_news))
+    
+    if search_sources:
+        return redirect(url_for(".sources",sources_name= search_sources ) )
+
+    return render_template("index.html", title = title, top=top_headlines)
