@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    {% if title %}
+
+    <title> {{ title}}</title>
+
+    {% else %}
+
+    <title> Welcome to the best Movie Review website </title>
+
+    {% endif %}
+
+</head>
+
+<body>
+
+    {% extends 'base.html' %}
+
+    {% import 'macros.html' as macro %}
+
+    <!-- Content Block-->
+    {% block content%}
+    <div class="container">
+
+    <h3 class="text-center"> Top News Headline </h3>
+        
+            
+            {{ macro.dispalyNewsList(top) }}
+
+        
+    </div>
+
+
+
+    {% endblock %}
+
+
+</body>
+
+</html>
