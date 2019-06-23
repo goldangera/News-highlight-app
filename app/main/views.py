@@ -9,7 +9,7 @@ def index():
     '''
     top_headlines = get_news("top-headlines")
 
-    title = "News headlines"
+    title = "Big News headlines"
     
     search_news = request.args.get("news_query")
     search_sources = request.args.get("news_sources")
@@ -20,3 +20,15 @@ def index():
         return redirect(url_for(".sources",sources_name= search_sources ) )
 
     return render_template("index.html", title = title, top=top_headlines)
+
+@main.route("/search/<news_name>")
+def search(news_name):
+    '''
+    View function to display the search results
+    '''
+    news_name_list = news_name.split(" ")
+    news_name_format = "+".join(news_name_list)
+    searched_news = search_news(news_name_format)
+    title = f" Search results for {news_name}"
+    
+    return render_template("search.html", news = searched_news)
