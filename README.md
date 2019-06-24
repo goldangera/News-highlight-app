@@ -27,7 +27,7 @@ This is an online news platform that provides a list of global news sources and 
 * On your terminal run
  ```./start.py```
 * Access the live site using the local host provided
-* Or access the live website by clicking on this url 
+* Or access the live website by clicking on this url https://big-news-6888.herokuapp.com/
 ## Known Bugs
 
 No Bugs
